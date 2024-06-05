@@ -1,6 +1,13 @@
-## Lidar-inertial Odometry
+## Works with MCDVIRAL dataset
 
-An updated lidar-initial odometry package, [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM), has been open-sourced and available for testing.
+This FORK includes updates to the `run_mcdviral.launch` file to configure the `data_path` and `bag_file` parameters for running the MCDVIRAL dataset on LeGO-LOAM. The launch file now launches the necessary nodes and configurations to convert MCD dataset from Ouster to Velodyne format and utilizes VN100 IMU data for 9-DOF conversion. However, note that there are known issues with the IMU data integration.
+
+## running mcd on (Velodyne HDL-64)
+Download (https://mcdviral.github.io/Download.html) and set the `data_path` and `bag_file` parameters in `run_mcdviral.launch` file.
+
+```
+    roslaunch aloam_velodyne run_mcdviral.launch
+```
 
 ## Dependency
 
