@@ -5,6 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /TF1/Frames1
+        - /Imu1
       Splitter Ratio: 0.7039999961853027
     Tree Height: 307
   - Class: rviz/Selection
@@ -433,8 +434,8 @@ Visualization Manager:
     - Alpha: 0.5
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 22.289260864257812
-        Min Value: -2.790445327758789
+        Max Value: 23.12931251525879
+        Min Value: -2.903379440307617
         Value: true
       Axis: Y
       Channel Name: intensity
@@ -486,6 +487,16 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
+    - Alpha: 1
+      Class: rviz_plugin_tutorials/Imu
+      Color: 204; 51; 204
+      Enabled: true
+      History Length: 1
+      Name: Imu
+      Queue Size: 10
+      Topic: /vn100/imu_9dof
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 0; 0; 0
@@ -502,7 +513,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 37.3912239074707
+      Distance: 63.32213592529297
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -518,9 +529,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8297970294952393
+      Pitch: 1.349797248840332
       Target Frame: base_link
-      Yaw: 0.3955147862434387
+      Yaw: 0.5805147886276245
     Saved: ~
 Window Geometry:
   Displays:
@@ -541,4 +552,4 @@ Window Geometry:
     collapsed: true
   Width: 1101
   X: 183
-  Y: 101
+  Y: 27

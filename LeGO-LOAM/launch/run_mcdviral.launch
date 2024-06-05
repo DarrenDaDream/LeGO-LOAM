@@ -14,11 +14,16 @@
     <!-- Play the bag file -->
 
     <node required="false" pkg="rosbag" type="play" name="rosbag_player"
-        args="$(arg publish_clock) $(arg bag_file) -r 1.0 -s 0 --topics /os_cloud_node/points /vn100/imu "
+        args="$(arg publish_clock) $(arg bag_file) -r 1.0 -s 0  "
         launch-prefix="bash -c 'sleep 1; $0 $@' "/>
 
     <!--- Sim Time -->
     <param name="/use_sim_time" value="true" />
+    <!-- convert vn100imu to 9DOF imu -->
+    <node name="imu_converter" pkg="lego_loam" type="imuconverter.py" output="screen"/>
+
+    <!-- CONVERT Ouster to Velodyne -->
+    <node pkg="slict" type="slict_OusterToVelodyne" name="slict_OusterToVelodyne" respawn="false" output="log" required="true"></node>
 
     <!--- Run Rviz-->
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find lego_loam)/rviz/run_mcdviral.rviz" />
@@ -26,6 +31,8 @@
     <!--- TF -->
     <node pkg="tf" type="static_transform_publisher" name="camera_init_to_map"  args="0 0 0 1.570795   0        1.570795 map    camera_init 10" />
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0 0 0 -1.570795 -1.570795 0        camera base_link   10" />
+
+
 
     <!--- LeGO-LOAM -->    
     <node pkg="lego_loam" type="imageProjection"    name="imageProjection"    output="screen"/>
